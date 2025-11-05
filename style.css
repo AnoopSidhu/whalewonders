@@ -56,7 +56,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -40%) rotate(0deg);
   width: 44px;                
   height: auto;
   opacity: 0.85;

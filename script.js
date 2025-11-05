@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hover in -> spin + glow
   aboutLink.addEventListener('mouseenter', () => {
     // keep the translate for centering and add rotation
-    starIcon.style.transform = 'translate(-50%, -50%) rotate(360deg)';
+    starIcon.style.transform = 'translate(-50%, -50%) rotate(80deg)';
     starIcon.style.filter = 'brightness(1.35) drop-shadow(0 4px 10px rgba(255,225,130,0.25))';
     starIcon.style.opacity = '1';
   });
