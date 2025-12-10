@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whale Wonders</title>
+  <link rel="stylesheet" href="styleexplore.css" />
+</head>
+<body>
+
+<!-- navigation -->
+<header>
+  <nav class="navbar">
+    <div class="logo">WHALE <span>WONDERS</span></div>
+    <ul class="nav-links">
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="play.html">Play</a></li>
+
+      <li class="play-link">
+        <img src="images/Star.png" alt="star icon" id="star-icon">
+        <a href="explore.html" id="play-link">Explore</a>
+      </li>
+
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="index.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- page title -->
+  <section class="page-head">
+    <h1>Let’s Explore!</h1>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="game">Habitat Map</button>
+      <button class="tab" data-tab="quiz">Ocean Zones</button>
+    </div>
+  </section>
+
+  <!-- habitat section -->
+<section id="section-game" class="tab-section active">
+  <div class="container">
+    <h2 class="section-title">Whale Habitat Maps</h2>
+
+    <div class="board-wrap">
+      <div class="explore-grid">
+
+
+      <!-- species selector -->
+    <div class="selector-card">
+         <h3>Select Species</h3>
+
+         <button class="select-btn" data-whale="blue">Blue Whale</button>
+         <button class="select-btn" data-whale="orca">Orca</button>
+         <button class="select-btn" data-whale="humpback">Humpback Whale</button>
+         <button class="select-btn" data-whale="beluga">Beluga Whale</button>
+         <button class="select-btn" data-whale="southern">Southern Right Whale</button>
+    </div>
+
+    <figure class="map-figure">
+     <img id="habitat-map" 
+     src="images/blue_whale_map.png" 
+     alt="Whale Habitat Map" 
+     class="habitat-map">
+
+     <figcaption id="map-caption">Whale Habitat maps credit: Noaa Fisheries</figcaption>
+    </figure>
+
+
+
+      </div> 
+    </div> 
+  </div>
+</section>
+
+
+  <!-- ocean zones section -->
+  <section id="section-quiz" class="tab-section">
+    <div class="container">
+  <h2 class="section-title">Ocean Depth Zones</h2>
+
+ <div class="board-wrap">
+<div class="zones-wrapper">
+
+  <!-- sunlight -->
+  <div class="zone-panel sunlight">
+    <button class="zone-header">
+      <span>Sunlight Zone (Epipelagic)</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="zone-content">
+      <img src="images/zone_sunlight.png" alt="">
+      <p>The Sunlight Zone (0–200m) is the brightest part of the ocean. Blue whales, humpbacks, dolphins, and more live here.</p>
+    </div>
+  </div>
+  
+
+  <!-- twilight -->
+  <div class="zone-panel twilight">
+    <button class="zone-header">
+      <span>Twilight Zone (Mesopelagic)</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="zone-content">
+      <img src="images/zone_twilight.png" alt="">
+      <p>The Twilight Zone (200–1,000m) is dim and mysterious, home to deep-sea creatures, Sperm whales, and Beaked whales. Some species, like blue whales, will dive here to feed.</p>
+    </div>
+  </div>
+
+  <!-- midnight -->
+  <div class="zone-panel midnight">
+    <button class="zone-header">
+      <span>Midnight Zone (Bathypelagic)</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="zone-content">
+      <img src="images/zone_midnight.png" alt="">
+      <p>The Midnight Zone (1,000–4,000m) is pitch black with freezing temperatures and crushing pressure. While this zone is characterized by many invertebrates like squid, large whales are not known to inhabit it. </p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+
+</main>
+
+
+<footer class="site-footer">
+  <p>Footer</p>
+</footer>
+
+<script src="scriptexplore.js"></script>
+</body>
+</html>

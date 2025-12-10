@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whale Wonders</title>
+  <link rel="stylesheet" href="stylelearn.css" />
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">WHALE <span>WONDERS</span></div>
+    <ul class="nav-links">
+      <li class="learn-link">
+        <img src="images/Star.png" alt="star" id="star-icon">
+        <a href="learn.html" id="learn-link">Learn</a>
+      </li>
+      <li><a href="play.html">Play</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="index.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<div class="container">
+  <!-- PAGE TITLE + TABS -->
+  <section class="page-head">
+    <h1>Let's Learn!</h1>
+
+    <div class="tabs">
+      <button class="tab active" id="species-btn" data-section="species">Species</button>
+      <button class="tab" id="conservation-btn" data-section="conservation">Conservation</button>
+      <button class="tab" id="facts-btn" data-section="fun">Fun Facts</button>
+    </div>
+  </section>
+
+  <!-- SPECIES SECTION -->
+  <section id="species" class="content-section">
+    
+    <h2 class="section-title">Whale Species</h2>
+  <div class="board-wrap">
+    <div class="whale-grid">
+
+      <div class="card">
+        <div class="starburst"></div>
+        <a href="killerwhale.html">
+          <img src="images/killerwhale.png" alt="Killer Whale" class="whale">
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="starburst"></div>
+        <a href="beluga.html">
+          <img src="images/beluga.png" alt="Beluga" class="whale">
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="starburst"></div>
+        <a href="spermwhale.html">
+          <img src="images/spermwhale.png" alt="Sperm Whale" class="whale">
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="starburst"></div>
+        <a href="southernwhale.html">
+          <img src="images/southern.png" alt="Southern Right Whale" class="whale">
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- CONSERVATION SECTION -->
+  <section id="conservation" class="content-section" style="display: none;">
+
+    <h2 class="section-heading">Help Protect Whales</h2>
+    <div class="board-wrap">
+    <div class="conservation-intro">
+
+      <div class="conservation-text">
+        <p>
+         Whales face numerous threats in today's oceans, from climate change and pollution to ship strikes and entanglement in fishing gear. 
+         Many species are still recovering from the impacts of commercial whaling that lasted for centuries.
+         Conservation efforts are crucial for maintaining healthy whale populations and preserving marine ecosystems. 
+         Whales play vital roles as ecosystem engineers, helping to maintain the balance of ocean food webs.
+
+        </p>
+      </div>
+      
+      <div class="conservation-image">
+         <img src="images/belugaaaaa.jpeg" alt="beluga whale swimming in the ocean">
+      </div>
+    </div>
+    
+
+<div class="conservation-card">
+  <h3>How kids can help:</h3>
+
+  <p>
+    Kids can make a big difference! Learning about whales, choosing reusable
+    items, and keeping beaches clean are just a few ways to help the ocean.
+    Every small action adds up!
+  </p>
+
+  <ul class="conservation-list">
+    <li><strong>Reduce Plastic Use:</strong> Use reusable water bottles and bags to keep plastic out of the ocean.</li>
+    <li><strong>Beach Clean-ups:</strong> Join or organize beach clean-up events with your family.</li>
+    <li><strong>Spread Awareness:</strong> Share what you learn about whales with friends and family.</li>
+    <li><strong>Support Conservation:</strong> Learn about organizations protecting whales and their habitats.</li>
+  </ul>
+</div>
+  </div>
+  </section>
+
+<!-- FUN FACTS SECTION -->
+<section id="fun-facts" class="content-section" style="display: none;">
+  <h2 class="section-title">Fun Facts</h2>
+<div class="board-wrap">
+  <p>🌟 Whales are full of surprises! Tap through these amazing facts:</p>
+
+  <div class="funfact-card">
+      <p id="funfact-text"></p>
+  </div>
+
+  <div class="funfact-buttons">
+      <button id="fun-prev">Previous</button>
+      <button id="fun-next">Next</button>
+  </div>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <p>Footer</p>
+</footer>
+
+<script src="scriptlearn.js"></script>
+
+</body>
+</html>

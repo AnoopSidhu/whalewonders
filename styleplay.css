@@ -1,0 +1,554 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-blue: #5d7fa3;
+
+  /* Game theme */
+  --bg:#0f1724;
+  --card-bg:#0b1220;
+  --accent:#ffcc00;
+  --muted:#9aa4b2;
+  --card-size:calc(100px + 3vmin);
+  --gap:12px;
+
+  /* Quiz theme */
+  --quiz-bg:#faf5e4;
+  --quiz-card:#ffffff;
+  --quiz-accent:#7ea9c7;
+  --quiz-accent2:#ffcc00;
+}
+
+/* BASE BODY */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  background-color: #faf5e4;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  position: relative; /* <- stacking ? */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5d7fa3;
+  padding: 1.5rem 2.5rem;
+  border-bottom: 4px solid #e3d5b8;
+  z-index: 0;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative; 
+}
+
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  z-index: 3; 
+  padding: 0.25rem 0.5rem;
+}
+
+
+.learn-link {
+  position: relative; 
+}
+
+
+#star-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 44px;                
+  height: auto;
+  opacity: 0.85;
+  z-index: 1;                 
+  pointer-events: none;        
+  transition: transform 0.6s cubic-bezier(.2,.9,.2,1), filter 0.3s ease, opacity 0.25s ease;
+  will-change: transform;     
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+}
+
+
+@media (max-width: 480px) {
+  #star-icon { width: 30px; }
+}
+
+/* PAGE HEADER */
+.page-head {
+  text-align: center;
+  padding: 36px 24px 8px;
+}
+
+.page-head h1{
+  font-size:3rem;
+  margin:8px 0 18px;
+  letter-spacing:1px;
+}
+
+.tabs{
+  display:inline-flex;
+  gap:8px;
+  background:transparent;
+  border-radius:12px;
+  padding:6px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+.tab{
+  border:0;
+  background:#17212b;
+  color: #e6f0f8;
+  padding:12px 28px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:1.05rem;
+  box-shadow: inset 0 -6px 0 rgba(0,0,0,0.12);
+  transition: background .18s, transform .12s;
+}
+.tab.active{
+  background: #7ea9c7;
+  color: #0b1b25;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+}
+
+/* TAB SECTIONS */
+.tab-section {
+  display: none;
+}
+.tab-section.active {
+  display: block;
+}
+
+/* ========== MEMORY GAME STYLES (restored & intact) ========== */
+
+.container {
+  margin: 40px auto;
+  max-width: 980px;
+  padding: 20px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(255,204,0,0.15);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  gap: 14px;
+  color: var(--muted);
+}
+
+/* Board */
+.board-wrap {
+  background: rgba(0,0,0,0.02);
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.board {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-size), 1fr));
+}
+
+/* CARDS (crucial styles for flip) */
+.card {
+  width: var(--card-size);
+  height: var(--card-size);
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  border: none;              /* button reset */
+  background: transparent;
+  padding: 0;
+}
+
+.card:focus {
+  outline: 3px solid rgba(126,169,199,0.25);
+  outline-offset: 4px;
+}
+
+.card-inner {
+  position: absolute;
+  inset: 0;
+  transition: transform .45s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(5,10,20,0.12);
+}
+
+/* flipped state */
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* front (hidden content indicator) */
+.front {
+  background: linear-gradient(180deg,#122033,#0b1a2a);
+  color: white;
+  font-size: 2rem;
+}
+
+/* back (image side) */
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg,#0b1220,#09202a);
+}
+
+.card .back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Footer / message */
+.footer {
+  margin-top: 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* site footer */
+.site-footer {
+  background: var(--nav-blue);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ========== QUIZ STYLES (matching aesthetic) ========== */
+
+.quiz-wrap {
+  background: #faf5e4;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.quiz-title {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.quiz-subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.quiz-question {
+  margin: 20px 0;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-option {
+  padding: 14px;
+  border-radius: 10px;
+  background: #7ea9c7;
+  cursor: pointer;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.quiz-option.selected {
+  border-color: var(--quiz-accent);
+  background: #d9e7f2;
+}
+
+.quiz-option input {
+  display:none;
+}
+
+.quiz-btn {
+  margin-top: 15px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #ddd;
+  font-weight: 600;
+}
+
+.quiz-btn.primary {
+  background: #d0b135;
+  color: white;
+}
+
+.quiz-result {
+  margin-top: 20px;
+  padding: 20px;
+  display: none;
+  background: #0f1724;
+  border-radius: 14px;
+  color: #d9e7f2;
+}
+
+.quiz-emoji {
+  font-size: 60px;
+  text-align: center;
+}
+
+.funfact {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.colour-card {
+  width: 120px;
+  height: 120px;
+  margin: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.colour-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.colour-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 0 1.5rem;
+  }
+
+  h1 { font-size: 4.5vw; }
+  h2 { font-size: 1.5rem; }
+  p { font-size: 1rem; }
+
+  
+  .hero-text h1 {
+    font-size: 6vw;
+  }
+
+  .hero-text {
+    top: 40%;
+  }
+
+  .about {
+    padding: 3rem 1.5rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  
+  .hero-text h1 {
+    font-size: 6.5vw;
+  }
+
+  .hero-text p {
+    font-size: 2.5vw;
+  }
+
+  .hero-text {
+    top: 45%;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    width: 90%;
+  }
+
+  .about-img img {
+    width: 10rem;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0 0.5rem;
+  }
+
+  h1 { font-size: 7vw; }
+  h2 { font-size: 1.3rem; }
+  p { font-size: 0.95rem; }
+
+  #star-icon {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-text {
+    top: 50%;
+  }
+
+  
+  .hero-text h1 {
+    font-size: 6vw;
+  }
+
+  .hero-text p {
+    font-size: 2.5vw;
+  }
+
+  .buttons {
+    gap: 0.4rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  h1 { font-size: 8vw; }
+  h2 { font-size: 1.2rem; }
+  p { font-size: 0.9rem; }
+
+  
+  .hero-text h1 {
+    font-size: 5vw;
+  }
+
+  .hero-text p {
+    font-size: 4vw;
+  }
+
+  .hero-text {
+    top: 55%;
+  }
+
+  .about {
+    padding: 2rem 1rem;
+  }
+
+  .about-img img {
+    width: 8rem;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  body {
+    padding: 0 0.3rem;
+  }
+
+  h1 { font-size: 4vw; }
+  h2 { font-size: 1rem; }
+  p { font-size: 0.85rem; }
+
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  
+  .hero-text h1 {
+    font-size: 5vw;
+  }
+
+  .hero-text p {
+    font-size: 4.5vw;
+  }
+
+  .hero-text {
+    top: 60%;
+  }
+
+  .btn {
+    padding: 0.4rem 0.8rem;
+  }
+}
