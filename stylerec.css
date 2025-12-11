@@ -1,4 +1,4 @@
-/* RESET */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,23 +7,8 @@
 
 :root {
   --nav-blue: #5d7fa3;
-
-  /* Game theme */
-  --bg:#0f1724;
-  --card-bg:#0b1220;
-  --accent:#ffcc00;
-  --muted:#9aa4b2;
-  --card-size:calc(100px + 3vmin);
-  --gap:12px;
-
-  /* Quiz theme */
-  --quiz-bg:#faf5e4;
-  --quiz-card:#ffffff;
-  --quiz-accent:#7ea9c7;
-  --quiz-accent2:#ffcc00;
 }
 
-/* BASE BODY */
 body {
   font-family: 'Poppins', sans-serif;
   color: #222;
@@ -33,7 +18,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: relative; /* <- stacking ? */
+  position: relative; 
   display: flex;
   justify-content: space-between;
   align-items: center;

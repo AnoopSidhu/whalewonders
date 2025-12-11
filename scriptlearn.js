@@ -31,7 +31,7 @@ const funFactsSection = document.getElementById("fun-facts");
 
 const tabs = document.querySelectorAll(".tab");
 
-// Function to show only one section
+
 function showSection(sectionToShow) {
   speciesSection.style.display = "none";
   conservationSection.style.display = "none";
@@ -40,15 +40,14 @@ function showSection(sectionToShow) {
   sectionToShow.style.display = "block";
 }
 
-// Add click listeners to tabs
 tabs.forEach(tab => {
   tab.addEventListener("click", () => {
 
-    // remove & re-add active class
+  
     tabs.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
 
-    // determine which content to show
+
     const target = tab.dataset.section;
     if (target === "species") showSection(speciesSection);
     if (target === "conservation") showSection(conservationSection);
@@ -56,7 +55,7 @@ tabs.forEach(tab => {
   });
 });
 
-// Default visible section
+
 showSection(speciesSection);
 
 /* FUN FACTS CARD SYSTEM */
@@ -75,7 +74,7 @@ const funText = document.getElementById("funfact-text");
 const funPrev = document.getElementById("fun-prev");
 const funNext = document.getElementById("fun-next");
 
-// show first fact on load
+
 funText.textContent = funFacts[funIndex];
 
 function updateFunFact() {

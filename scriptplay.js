@@ -56,12 +56,12 @@ MEMORY GAME LOGIC
 
 const CARD_IMAGES = [
   "images/beluga.png",
-  "images/card1.png",
+  "images/card1.PNG",
   "images/whaleshark.png",
-  "images/card2.png",
-  "images/card3.png",
-  "images/card4.png",
-  "images/card5.png",
+  "images/card2.PNG",
+  "images/card3.PNG",
+  "images/card4.PNG",
+  "images/card5.PNG",
   "images/southern.png"
 ];
 

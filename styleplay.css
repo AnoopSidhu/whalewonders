@@ -1,4 +1,4 @@
-/* RESET */
+
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +33,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: relative; /* <- stacking ? */
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,7 +141,7 @@ body {
   display: block;
 }
 
-/* ========== MEMORY GAME STYLES (restored & intact) ========== */
+/* MEMORY GAME */
 
 .container {
   margin: 40px auto;
@@ -190,14 +190,14 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(var(--card-size), 1fr));
 }
 
-/* CARDS (crucial styles for flip) */
+/* CARDS */
 .card {
   width: var(--card-size);
   height: var(--card-size);
   position: relative;
   perspective: 1000px;
   cursor: pointer;
-  border: none;              /* button reset */
+  border: none;            
   background: transparent;
   padding: 0;
 }
@@ -234,14 +234,12 @@ body {
   overflow:hidden;
 }
 
-/* front (hidden content indicator) */
 .front {
   background: linear-gradient(180deg,#122033,#0b1a2a);
   color: white;
   font-size: 2rem;
 }
 
-/* back (image side) */
 .back {
   transform: rotateY(180deg);
   background: linear-gradient(180deg,#0b1220,#09202a);
@@ -263,7 +261,7 @@ body {
   align-items:center;
 }
 
-/* ========== QUIZ STYLES (matching aesthetic) ========== */
+/* QUIZ STYLES */
 
 .quiz-wrap {
   background: #faf5e4;

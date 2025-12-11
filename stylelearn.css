@@ -13,7 +13,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: relative; /* <- stacking ? */
+  position: relative; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,20 +141,19 @@ body {
 .card {
   position: relative;
   width: 100%;
-  height: 22vw; /* smaller so visually fuller */
+  height: 22vw; 
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
 }
 
-/* CSS STARBURST behind whale (simple conic-gradient star rays) */
 .card .starburst {
   position: absolute;
   width: 22vw;
   height: 22vw;
   left: 50%;
-  top: 50%;          /* FIX */
+  top: 50%;          
   transform: translate(-50%, -50%);
   z-index: 1;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));
@@ -178,13 +177,12 @@ body {
   padding: 40px 5vw;
 }
 
-/* WHALE IMAGE (on top of starburst) */
 .whale {
   position: relative;
   width: 22vw;
   max-height: 22vw;
   z-index: 2;
-  transform: translateY(0); /* FIX */
+  transform: translateY(0); 
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
 }
@@ -289,7 +287,7 @@ body {
   line-height: 1.5;
 }
 
-/* FUN FACTS - CARD STYLE */
+/* FUN FACTS */
 .funfact-card {
   background: white;
   padding: 2rem;

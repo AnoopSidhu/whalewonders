@@ -22,7 +22,7 @@ p {
 
 /* NAVBAR */
 .navbar {
-  position: relative; /* <- stacking ? */
+  position: relative; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,44 +120,6 @@ p {
 }
 
 
-/* Description */
-.whale-description p {
-  margin-bottom: 1rem;
-  font-size: 1.15rem;
-  line-height: 1.4;
-}
-
-/* Audio buttons */
-.audio-section {
-  margin-top: 2rem;
-}
-
-.audio-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.2rem;
-}
-
-.audio-control {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-
-.play-btn {
-  background: #1f3f66;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.play-btn:hover {
-  transform: scale(1.1);
-}
-
 .next-prev-buttons {
   display: flex;
   justify-content: center;
@@ -178,14 +140,14 @@ p {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Hover effect */
+
 .prev-button:hover,
 .next-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 0 #0d223a;
 }
 
-/* Pressed effect */
+
 .prev-button:active,
 .next-button:active {
   transform: translateY(1px);
