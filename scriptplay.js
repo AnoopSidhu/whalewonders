@@ -1,5 +1,5 @@
 /* --------------------
-⭐ STAR ICON BEHAVIOUR
+STAR ICON BEHAVIOUR
 -------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   const starIcon = document.getElementById('star-icon');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------
-⭐ TABS LOGIC (Updated)
+ TABS LOGIC 
 -------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tab');
@@ -29,18 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     colour: document.getElementById('section-colour')
   };
 
-  // Hide all sections except the first on page load
+  
   Object.values(sections).forEach((sec, i) => {
     sec.style.display = i === 0 ? 'block' : 'none';
   });
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Remove active class from all tabs
+     
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
-      // Show the selected section
+     
       const selected = tab.dataset.tab;
       Object.keys(sections).forEach(key => {
         sections[key].style.display = key === selected ? 'block' : 'none';
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* --------------------
-⭐ MEMORY GAME CODE
+MEMORY GAME LOGIC
 -------------------- */
 
 const CARD_IMAGES = [
@@ -194,7 +194,7 @@ if(restartBtn) restartBtn.addEventListener("click", startGame);
 startGame();
 
 /* --------------------
-⭐ QUIZ LOGIC
+QUIZ LOGIC
 -------------------- */
 
 const submitQuiz = document.getElementById("submitQuiz");
@@ -272,7 +272,7 @@ if (quizForm) {
 }
 
 /* --------------------
-⭐ COLOURING PAGES LOGIC
+COLOURING PAGES LOGIC
 -------------------- */
 const colourCards = document.querySelectorAll('.colour-card');
 
@@ -281,16 +281,30 @@ colourCards.forEach(card => {
     const imgSrc = card.dataset.img;
     if(!imgSrc) return;
 
-    // Open full-size image in new tab
+    
     window.open(imgSrc, '_blank');
-
-    // Optional: automatic download (uncomment to enable)
-    // const a = document.createElement('a');
-    // a.href = imgSrc;
-    // a.download = imgSrc.split('/').pop(); 
-    // document.body.appendChild(a);
-    // a.click();
-    // document.body.removeChild(a);
   });
+});
+
+/* --------------------
+RANDOM FOOTER FACT
+-------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const factBox = document.getElementById("footer-fact-text");
+
+  const whaleFacts = [
+    "Blue whales have hearts the size of cars!",
+    "Humpback whales sing songs that can last for hours.",
+    "Beluga whales can swim backwards!",
+    "Whales sleep with half their brain awake!"
+  ];
+
+  function changeFact() {
+    const random = Math.floor(Math.random() * whaleFacts.length);
+    factBox.textContent = whaleFacts[random];
+  }
+
+  setInterval(changeFact, 6000);
 });
 
